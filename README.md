@@ -77,4 +77,4 @@ Notion links:
 | Scrum Master | Backend Architect | Frontend Architect | UI Dev | UI Dev |
 |--------------|-------------------|--------------------|--------|--------|
 | Katie Fitzpatrick | David Situ | Rachel Kolk | Nick Cannariato | Peter Murphy |
-| @KatieFizzy |   | @RachelKolk | @nickcannariato | @ptrfrncsmrph |
+| @KatieFizzy | @Codechiha | @RachelKolk | @nickcannariato | @ptrfrncsmrph |
