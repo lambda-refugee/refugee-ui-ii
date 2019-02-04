@@ -99,24 +99,26 @@ body {
 
   /* Shows relevant part of image on small screens */
   background-position-x: 50%;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 header {
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
 }
 
 header .container {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  align-items: flex-end;
 }
 
 header .container div {
   color: var(--fresh);
-  padding: 1rem;
+  padding: 2rem;
   background: var(--vermillion-cc);
+  max-height: max-content;
+  margin: 1rem 0;
 }
 
 header form {
@@ -149,6 +151,8 @@ header .container {
 
 .stories li {
   display: flex;
+  align-items: center;
+  background: var(--sunshine);
 }
 
 .stories li:nth-child(2n) {
