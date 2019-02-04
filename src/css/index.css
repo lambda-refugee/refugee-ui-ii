@@ -1,0 +1,32 @@
+/* Setting up global variables here */
+/* NB: CSS variables are currently supported in about 86% of browsers (caniuse.com),
+   for higher compatibility this could be run through a build step like PostCSS
+   or just a simple find-and-replace operation before deploying. */
+
+:root {
+  /* Using system fonts for faster page load, but open to using whatever is decided upon */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --serif-font: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+  /* Color palette */
+  --fresh: #f7f5e6;
+  --vermillion: #333a56;
+  --sunshine: #52658f;
+  --clean: #e8e8e8;
+
+  /* Break points */
+  --min-tablet-width: 600px;
+  --min-desktop-width: 800px;
+}
+
+/* Minimal reset */
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
