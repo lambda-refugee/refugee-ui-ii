@@ -42,6 +42,14 @@ button, input {
   font-size: 1rem;
 }
 
+/* **** */
+/* BODY */
+/* **** */
+
+body {
+  background: var(--fresh);
+}
+
 /* ********** */
 /* NAVIGATION */
 /* ********** */
@@ -88,7 +96,6 @@ button, input {
   display: block;
   background-image: url("../assets/placeholder/hero.jpg");
   background-size: cover;
-  filter: grayscale(100%);
 
   /* Shows relevant part of image on small screens */
   background-position-x: 50%;
@@ -132,20 +139,28 @@ header form button {
   border: none;
 }
 
-/* header * {
-  color: red;
-  outline: 1px solid yellow;
-} */
-
-/* header > * {
-  outline: 1px solid magenta;
-} */
-
 header .container {
   display: flex;
 }
 
+/* ******* */
+/* CONTENT */
+/* ******* */
 
-main {
-  background: var(--fresh);
+.stories li {
+  display: flex;
+}
+
+.stories li:nth-child(2n) {
+  flex-direction: row-reverse;
+}
+
+.stories li > * {
+  margin: 0.5rem;
+}
+
+.stories li img {
+  width: calc(50% - 1rem);
+  object-fit: cover;
+  height: 40vh;
 }
