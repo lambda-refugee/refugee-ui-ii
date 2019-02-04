@@ -11,6 +11,7 @@
   /* Color palette */
   --fresh: #f7f5e6;
   --vermillion: #333a56;
+  --vermillion-cc: #333a56cc;
   --sunshine: #52658f;
   --clean: #e8e8e8;
 
@@ -36,7 +37,25 @@ ul {
   list-style: none;
 }
 
-/*  */
+
+button, input {
+  font-size: 1rem;
+}
+
+/* ********** */
+/* NAVIGATION */
+/* ********** */
+
+/* Only using this div so that the background of navbar
+   extends to 100% width of screen */
+.nav-outer-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--vermillion);
+}
+
 .nav-container, .container {
   max-width: 95vw;
   width: 800px;
@@ -44,8 +63,20 @@ ul {
 }
 
 .nav-container {
+  padding: 0.5rem 0;
+  justify-content: space-between;
+  align-items: bottom;
   display: flex;
-  outline: 1px solid red;
+  color: var(--fresh);
+}
+
+.nav-container a {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--fresh);
+  color: var(--vermillion);
+  text-decoration: none;
 }
 
 .header-img {
@@ -71,22 +102,34 @@ header {
 
 header .container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
-  background: #c969;
   width: 100%;
 }
 
-header .container * {
-  outline: 1px solid red;
+header .container div {
+  color: var(--fresh);
+  padding: 1rem;
+  background: var(--vermillion-cc);
 }
 
 header form {
   display: flex;
-  background: blue;
   flex-wrap: wrap;
   flex-direction: row;
   width: min-content;
+}
+
+header form label {
+  margin: 0.5rem 0;
+}
+
+header form button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--fresh);
+  color: var(--vermillion);
+  margin: 0.5rem 0;
+  border: none;
 }
 
 /* header * {
@@ -94,9 +137,9 @@ header form {
   outline: 1px solid yellow;
 } */
 
-header > * {
+/* header > * {
   outline: 1px solid magenta;
-}
+} */
 
 header .container {
   display: flex;
