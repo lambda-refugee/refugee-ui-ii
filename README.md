@@ -78,3 +78,4 @@ Notion links:
 |--------------|-------------------|--------------------|--------|--------|
 | Katie Fitzpatrick | David Situ | Rachel Kolk | Nick Cannariato | Peter Murphy |
 | @KatieFizzy | @Codechiha | @RachelKolk | @nickcannariato | @ptrfrncsmrph |
+| @KatieFizzy |   | @RachelKolk | @nickcannariato | @ptrfrncsmrph |
