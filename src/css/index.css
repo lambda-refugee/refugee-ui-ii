@@ -47,7 +47,6 @@ ul {
 
 p {
   line-height: 1.4;
-  font-size: 1.2rem;
 }
 
 button, input {
@@ -78,13 +77,13 @@ body {
   left: 0;
   width: 100%;
   background: var(--vermillion);
-  color: white;
+  color: var(--fresh);
 }
 
 /* Going to use this with event listener on scroll */
 .nav-show {
   position: fixed;
-  box-shadow: var(--sunshine-cc);
+  box-shadow: 0 0 10px var(--sunshine-cc);
 }
 
 .nav-container, .container {
@@ -101,8 +100,6 @@ body {
 }
 
 .nav-container h1 {
-  color: white;
-  font-weight: 400;
   letter-spacing: -0.025em;
 }
 
@@ -253,9 +250,33 @@ h2 {
 }
 
 .stories li img {
-  /* width: calc(80% - 1rem); */
   display: inline-block;
   width: 50%;
-  height: 100%;
   object-fit: cover;
+}
+
+@media(min-width: 600px) {
+  .stories ul {
+    display: flex;
+    overflow: scroll;
+  }
+  .stories li {
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+  .stories li:nth-child(2n + 1) {
+    flex-direction: column; 
+  }
+  .stories li p {
+    width: 100%;
+    text-align: center;
+  }
+  .stories li:nth-child(2n + 1 ) p {
+    text-align: center;
+  }
+  .stories li img {
+    height: 30vh;
+    width: 100%;
+    object-fit: cover;
+  }
 }
