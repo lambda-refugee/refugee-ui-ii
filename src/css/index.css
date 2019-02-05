@@ -73,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   height: var(--navbar-height);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -82,7 +82,8 @@ body {
 }
 
 /* Going to use this with event listener on scroll */
-.nav-shadow {
+.nav-show {
+  position: fixed;
   box-shadow: var(--sunshine-cc);
 }
 
