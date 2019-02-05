@@ -14,7 +14,7 @@ const toParamString = obj => {
   return params.toString()
 }
 
-const REACT_APP_STORY_FORM = ""
+const REACT_APP_STORY_FORM = "https://refugeestories.netlify.com/story-form"
 
 main = () => {
   const getHeaderHeight = () =>
@@ -40,9 +40,9 @@ main = () => {
 
   form.onsubmit = e => {
     e.preventDefault()
-
-    console.log(toParamString(serialize(inputs)))
-    // window.location.href = `https://localhost:3000/story-form?${toParamString(serialize(inputs))}`
+    window.location.href = `${REACT_APP_STORY_FORM}?${toParamString(
+      serialize(inputs)
+    )}`
   }
 }
 
