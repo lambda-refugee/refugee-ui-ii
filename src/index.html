@@ -10,6 +10,21 @@
 </head>
 
 <body>
+  <svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+    <filter id="filter">
+      <feColorMatrix type="matrix" result="grayscale" values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 1 0">
+      </feColorMatrix>
+      <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+        <feFuncR type="table" tableValues="0 0.5"></feFuncR>
+        <feFuncG type="table" tableValues="0 0"></feFuncG>
+        <feFuncB type="table" tableValues="0.568627451 0.05098039216"></feFuncB>
+        <feFuncA type="table" tableValues="0 1"></feFuncA>
+      </feComponentTransfer>
+    </filter>
+  </svg>
   <div class="nav-outer-container">
     <div class="nav-container">
       <h1>Refugee Stories</h1>
@@ -19,6 +34,8 @@
     </div>
   </div>
   <div class="header-img">
+  </div>
+  <div class="duotone lighten darken">
   </div>
   <header>
     <div class="container">

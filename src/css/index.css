@@ -53,12 +53,16 @@ button, input {
 /* **** */
 
 body {
-  background: var(--fresh);
+  background: var(--white);
 }
 /* 
 * {
   color: var(--vermillion);
 } */
+
+.hidden {
+  display: none;
+}
 
 /* ********** */
 /* NAVIGATION */
@@ -75,7 +79,7 @@ body {
   left: 0;
   width: 100%;
   background: var(--vermillion);
-  color: var(--fresh);
+  color: white;
 }
 
 .nav-shadow {
@@ -96,7 +100,7 @@ body {
 }
 
 .nav-container h1 {
-  color: var(--fresh);
+  color: white;
   font-weight: 400;
   letter-spacing: -0.025em;
 }
@@ -120,6 +124,7 @@ body {
   left: 0;
   right: 0;
   z-index: -1;
+  /* filter: url("#filter"); */
   
   display: block;
   background-image: url("../assets/placeholder/hero.jpg");
@@ -128,6 +133,35 @@ body {
   /* Shows relevant part of image on small screens */
   background-position-x: 50%;
   min-height: calc(100vh - var(--navbar-height));
+}
+
+.duotone {
+  position: absolute; 
+  left: 0;
+  right: 0;
+  display: inline-block;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  background-image: url("../assets/placeholder/hero.jpg");
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.duotone::before, .duotone::after {
+  width: inherit;
+  position: absolute;
+  min-height: calc(100vh - var(--navbar-height));
+  content: "";
+}
+
+.duotone::before {
+  background-color: var(--vermillion);
+  mix-blend-mode: multiply;
+}
+
+.duotone::after {
+  mix-blend-mode: screen;
+  background-color: var(--vermillion);
 }
 
 header {
