@@ -55,14 +55,6 @@ button, input {
 body {
   background: var(--white);
 }
-/* 
-* {
-  color: var(--vermillion);
-} */
-
-.hidden {
-  display: none;
-}
 
 /* ********** */
 /* NAVIGATION */
@@ -82,6 +74,7 @@ body {
   color: white;
 }
 
+/* Going to use this with event listener on scroll */
 .nav-shadow {
   box-shadow: var(--sunshine-cc);
 }
@@ -143,23 +136,25 @@ body {
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  background-image: url("../assets/placeholder/hero.jpg");
   min-height: calc(100vh - var(--navbar-height));
 }
 
 .duotone::before, .duotone::after {
   width: inherit;
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   min-height: calc(100vh - var(--navbar-height));
   content: "";
 }
 
-.duotone::before {
-  background-color: var(--vermillion);
+.duotone::after {
   mix-blend-mode: multiply;
+  background-color: var(--vermillion);
 }
 
-.duotone::after {
+.duotone::before {
   mix-blend-mode: screen;
   background-color: var(--vermillion);
 }
@@ -171,6 +166,7 @@ header {
 }
 
 header .container {
+  z-index: 1;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
