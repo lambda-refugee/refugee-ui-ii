@@ -47,6 +47,7 @@ ul {
 
 p {
   line-height: 1.4;
+  font-size: 1.2rem;
 }
 
 button, input {
@@ -123,8 +124,8 @@ body {
   left: 0;
   right: 0;
   z-index: -1;
-  /* filter: url("#filter"); */
-  
+  filter: grayscale(100%) brightness(250%) contrast(100%);
+
   display: block;
   background-image: url("../assets/placeholder/hero.jpg");
   background-size: cover;
@@ -156,13 +157,13 @@ body {
 }
 
 .duotone::after {
-  mix-blend-mode: multiply;
+  mix-blend-mode: lighten;
   background-color: var(--vermillion);
 }
 
 .duotone::before {
-  mix-blend-mode: screen;
-  background-color: var(--vermillion);
+  mix-blend-mode: multiply;
+  background-color: var(--sunshine);
 }
 
 header {
@@ -179,7 +180,6 @@ header .container {
 }
 
 header .container div {
-  border-radius: 2.5rem;
   color: var(--fresh);
   padding: 2rem;
   background: var(--sunshine-cc);
@@ -232,41 +232,29 @@ h2 {
 
 .stories li {
   display: flex;
+  flex-direction: row;
   align-items: center;
   color: var(--vermillion);
 }
 
 .stories li p {
-  margin-left: -3rem;
-  text-align: right;
-}
-
-.highlight {
-  display: inline;
-  padding: 0.2rem;
-  padding-left: 0.2rem;
-  padding-right: 0.2rem;
-  -webkit-box-decoration-break: clone;
-  -ms-box-decoration-break: clone;
-  -o-box-decoration-break: clone;
-  box-decoration-break: clone;
-  box-shadow: 0.2rem 0 0 white, -0.2rem 0 0 white;
-  background: white;
+  width: 45%;
+  padding-left: 5%;
 }
 
 .stories li:nth-child(2n + 1) {
-  flex-direction: row-reverse;
+  flex-direction: row-reverse; 
 }
 
 .stories li:nth-child(2n + 1 ) p {
-  margin-left: 0;
-  margin-right: -3rem;
-  text-align: left;
+  text-align: right;
+  padding-right: 5%;
 }
 
 .stories li img {
-  width: calc(80% - 1rem);
-  min-width: 50vw;
+  /* width: calc(80% - 1rem); */
+  display: inline-block;
+  width: 50%;
+  height: 100%;
   object-fit: cover;
-  height: 40vh;
 }
