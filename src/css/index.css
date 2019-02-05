@@ -332,3 +332,18 @@ main h2::after {
     align-self: flex-end;
   }
 }
+
+/* ****** */
+/* FOOTER */
+/* ****** */
+
+footer {
+  background: var(--vermillion);
+}
+
+footer p {
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+  color: var(--fresh);
+}
