@@ -1,0 +1,334 @@
+/* Setting up global variables here */
+/* NB: CSS variables are currently supported in about 86% of browsers (caniuse.com),
+   for higher compatibility this could be run through a build step like PostCSS
+   or just a simple find-and-replace operation before deploying. */
+
+:root {
+  /* Using system fonts for faster page load, but open to using whatever is decided upon */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --serif-font: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+
+  /* Color palette */
+  --fresh: #f7f5e6;
+  --fresh-cc: #f7f5e6cc;
+  --vermillion: #333a56;
+  --vermillion-cc: #333a56cc;
+  --sunshine: #52658f;
+  --sunshine-cc: #52658fcc;
+  --clean: #e8e8e8;
+
+  /* Break points */
+  --min-tablet-width: 600px;
+  --min-desktop-width: 800px;
+
+  /* For keeping height of navbar in sync
+     with padding-top of rest of content */
+  --navbar-height: 4rem;
+
+  --scalar: 1.41428;
+
+  font-family: var(--sans-font);
+}
+
+/* Minimal reset */
+
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  line-height: 1.4;
+}
+
+button, input {
+  font-size: 1rem;
+}
+
+/* **** */
+/* BODY */
+/* **** */
+
+body {
+  background: var(--white);
+}
+
+/* ********** */
+/* NAVIGATION */
+/* ********** */
+
+/* Only using this div so that the background of navbar
+   extends to 100% width of screen */
+.nav-outer-container {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: var(--navbar-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--vermillion);
+  color: var(--fresh);
+}
+
+.nav-container, .container {
+  max-width: 95vw;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.nav-container {
+  padding: 0.5rem 0;
+  justify-content: space-between;
+  align-items: bottom;
+  display: flex;
+}
+
+.nav-container h1 {
+  letter-spacing: -0.025em;
+}
+
+.nav-container a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  background: var(--fresh);
+  color: var(--vermillion);
+  text-decoration: none;
+}
+
+/* Going to use this with event listener on scroll */
+.nav-show {
+  position: fixed;
+  box-shadow: 0 0 10px var(--sunshine-cc);
+}
+
+/* ****** */
+/* HEADER */
+/* ****** */
+
+
+.header-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  filter: grayscale(100%) brightness(250%) contrast(100%);
+
+  display: block;
+  background-image: url("../assets/placeholder/hero.jpg");
+  background-size: cover;
+
+  /* Shows relevant part of image on small screens */
+  background-position-x: 50%;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.duotone {
+  position: absolute; 
+  left: 0;
+  right: 0;
+  display: inline-block;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.duotone::before, .duotone::after {
+  width: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+  content: "";
+}
+
+.duotone::after {
+  mix-blend-mode: lighten;
+  background-color: var(--vermillion);
+}
+
+.duotone::before {
+  mix-blend-mode: multiply;
+  background-color: var(--sunshine);
+}
+
+header {
+  min-height: calc(100vh - var(--navbar-height));
+  margin-top: var(--navbar-height);
+  display: flex;
+}
+
+header .container {
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+header .container div {
+  color: var(--fresh);
+  padding: 2rem;
+  background: var(--sunshine-cc);
+  max-height: max-content;
+  margin: 1rem 0;
+}
+
+header form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: min-content;
+  justify-content: center;
+}
+
+header form label {
+  margin: 0.5rem 0;
+}
+
+header form input {
+  border: none;
+  padding: 0.5rem;
+  background: var(--fresh);
+}
+
+header form button {
+  padding: 0.75rem;
+  border-radius: 2rem;
+  color: var(--fresh);
+  border: 1.5px solid var(--fresh);
+  background: transparent;
+  margin: 0.5rem 0;
+}
+
+header .container {
+  display: flex;
+}
+
+/* ******* */
+/* CONTENT */
+/* ******* */
+
+main {
+  color: var(--vermillion);
+}
+
+section {
+  margin-top: 2rem;
+}
+
+main h2 {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+main h2::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  border-top: 1px dotted var(--vermillion);
+  margin: 0 1rem;
+}
+
+/* ******* */
+/* STORIES */
+/* ******* */
+
+.stories li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--vermillion);
+}
+
+.stories li p {
+  width: 45%;
+  padding-left: 5%;
+}
+
+.stories li:nth-child(2n + 1) {
+  flex-direction: row-reverse; 
+}
+
+.stories li:nth-child(2n + 1 ) p {
+  text-align: right;
+  padding-right: 5%;
+}
+
+.stories li img {
+  display: inline-block;
+  width: 50%;
+  object-fit: cover;
+}
+
+@media(min-width: 600px) {
+  .stories ul {
+    display: flex;
+    overflow: scroll;
+  }
+  .stories li {
+    flex-direction: column;
+    margin: 0 1rem;
+  }
+  .stories li:nth-child(2n + 1) {
+    flex-direction: column; 
+  }
+  .stories li p {
+    width: 100%;
+    text-align: center;
+  }
+  .stories li:nth-child(2n + 1 ) p {
+    text-align: center;
+  }
+  .stories li img {
+    height: 30vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ***** */
+/* FACTS */
+/* ***** */
+
+.facts li {
+  background: var(--clean);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--vermillion);
+  margin-bottom: 1rem;
+}
+
+@media(min-width: 600px) {
+  .facts ul {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-gap: 1rem;
+    overflow: scroll;
+  }
+  .facts li {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .facts li * {
+    align-self: flex-start;
+  }
+  .facts li a {
+    align-self: flex-end;
+  }
+}
