@@ -25,6 +25,8 @@
      with padding-top of rest of content */
   --navbar-height: 4rem;
 
+  --scalar: 1.41428;
+
   font-family: var(--sans-font);
 }
 
@@ -43,6 +45,9 @@ ul {
   list-style: none;
 }
 
+p {
+  line-height: 1.4;
+}
 
 button, input {
   font-size: 1rem;
@@ -63,6 +68,7 @@ body {
 /* Only using this div so that the background of navbar
    extends to 100% width of screen */
 .nav-outer-container {
+  z-index: 2;
   display: flex;
   align-items: center;
   height: var(--navbar-height);
@@ -231,6 +237,19 @@ h2 {
   align-items: center;
   color: var(--vermillion);
   background: var(--clean);
+}
+
+.highlight {
+  display: inline;
+  padding: 0.2rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -o-box-decoration-break: clone;
+  box-decoration-break: clone;
+  box-shadow: 0.2rem 0 0 yellow, -0.2rem 0 0 yellow;
+  background: yellow;
 }
 
 .stories li:nth-child(2n) {
