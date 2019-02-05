@@ -1,3 +1,21 @@
+// Serializes form inputs so they can be used to construct
+// URL query parameters
+const serialize = inputs =>
+  [...inputs].reduce(
+    (acc, input) => ({ ...acc, [input.name]: input.value }),
+    {}
+  )
+
+const toParamString = obj => {
+  let params = new URLSearchParams()
+  Object.entries(obj).forEach(([k, v]) => {
+    params.append(k, v)
+  })
+  return params.toString()
+}
+
+const REACT_APP_STORY_FORM = ""
+
 main = () => {
   const getHeaderHeight = () =>
     +getComputedStyle(document.querySelector("header")).height.slice(0, -2)
@@ -16,6 +34,16 @@ main = () => {
     document.onscroll = showNavBar
   })
   document.onscroll = showNavBar
+
+  const form = document.querySelector("form")
+  const inputs = form.querySelectorAll("input")
+
+  form.onsubmit = e => {
+    e.preventDefault()
+
+    console.log(toParamString(serialize(inputs)))
+    // window.location.href = `https://localhost:3000/story-form?${toParamString(serialize(inputs))}`
+  }
 }
 
 window.onload = main
