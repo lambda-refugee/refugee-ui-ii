@@ -275,7 +275,8 @@ main h2::after {
   flex-direction: row-reverse;
   align-items: center;
   color: white;
-  text-shadow: 0 0 2px var(--vermillion);
+  margin: 1rem 0;
+  text-shadow: 2px 2px 1px var(--vermillion);
 }
 
 .stories li p {
@@ -298,15 +299,6 @@ main h2::after {
   object-position: 50%;
 } */
 
-@media(min-width: 500px) {
-  .stories li:nth-child(2n + 1) p {
-    padding-right: 5%;
-  }
-  .stories li p {
-    width: 45%;
-    padding-left: 5%;
-  }
-}
 
 @media(min-width: 600px) {
   .stories ul {
@@ -333,6 +325,17 @@ main h2::after {
     object-fit: cover;
   }
 }
+
+@media(min-width: 500px) {
+  .stories li:nth-child(2n + 1) p {
+    padding-right: 5%;
+  }
+  .stories li p {
+    width: 45%;
+    padding-left: 5%;
+  }
+}
+
 
 /* ***** */
 /* FACTS */
