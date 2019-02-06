@@ -295,37 +295,6 @@ main h2::after {
   object-fit: cover;
 }
 
-/* .stories li:nth-child(2n + 1) img {
-  object-position: 50%;
-} */
-
-
-@media(min-width: 600px) {
-  .stories ul {
-    display: flex;
-    overflow: scroll;
-  }
-  .stories li {
-    flex-direction: column;
-    margin: 0 1rem;
-  }
-  .stories li:nth-child(2n + 1) {
-    flex-direction: column; 
-  }
-  .stories li p {
-    width: 100%;
-    text-align: center;
-  }
-  .stories li:nth-child(2n + 1 ) p {
-    text-align: center;
-  }
-  .stories li img {
-    height: 30vh;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
 @media(min-width: 500px) {
   .stories li:nth-child(2n + 1) p {
     padding-right: 5%;
@@ -336,6 +305,35 @@ main h2::after {
   }
 }
 
+@media(min-width: 600px) {
+  .stories ul {
+    display: flex;
+    overflow: scroll;
+  }
+  .stories li {
+    flex-direction: column;
+    margin: 0 1rem;
+    color: var(--vermillion);
+    text-shadow: none;
+  }
+  .stories li:nth-child(2n + 1) {
+    flex-direction: column; 
+  }
+  .stories li p {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  .stories li:nth-child(2n + 1 ) p {
+    text-align: center;
+  }
+  .stories li img {
+    position: inherit;
+    height: 30vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
 
 /* ***** */
 /* FACTS */
