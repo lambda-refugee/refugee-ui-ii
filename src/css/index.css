@@ -112,6 +112,15 @@ body {
   box-shadow: 0 0 10px var(--sunshine-cc);
 }
 
+.nav-container svg {
+  height: 2rem;
+}
+
+.nav-container svg path {
+  stroke-linecap: round;
+  stroke: var(--fresh);
+}
+
 /* ****** */
 /* HEADER */
 /* ****** */
