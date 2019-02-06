@@ -281,7 +281,10 @@ main h2::after {
 
 .stories li p {
   text-align: right;
-  padding: 50vh 1rem 0;
+  margin-top: 60vh;
+  margin-bottom: 0;
+  padding: 1rem;
+  background: var(--vermillion-cc);
 }
 
 .stories li img {
@@ -302,10 +305,12 @@ main h2::after {
   .stories li p {
     width: 45%;
     padding-left: 5%;
+    margin-top: 1rem;
+    background: none;
   }
 }
 
-@media(min-width: 600px) {
+@media(min-width: 650px) {
   .stories ul {
     display: flex;
     overflow: scroll;
