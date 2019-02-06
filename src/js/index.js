@@ -1,6 +1,4 @@
-// Serializes form inputs so they can be used to construct
-// URL query parameters
-// * I think I still need to handle whitespace, so it might be best to use `new URLSearchParams(...)`
+// Serializes form inputs so they can be used to construct URL query parameters
 const serialize = inputs =>
   [...inputs].reduce(
     (acc, { name, value }) => `${acc}${acc ? "&" : "?"}${name}=${value}`,
@@ -23,6 +21,19 @@ main = () => {
   }
 
   document.onscroll = showNavBar
+
+  const dropdownNav = document.querySelector(".nav-dropdown")
+  dropdownNav.classList.remove("hidden")
+  const hNav = getComputedStyle(dropdownNav).height
+  dropdownNav.classList.add("hidden")
+
+  const navSVG = document.querySelector(".nav-container svg")
+  navSVG.addEventListener("click", () => {
+    dropdownNav.classList.toggle("hidden")
+    !dropdownNav.classList.contains("hidden")
+      ? (dropdownNav.style.height = hNav)
+      : (dropdownNav.style.height = 0)
+  })
 
   const form = document.querySelector("form")
   const h = getComputedStyle(form).height

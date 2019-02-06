@@ -149,6 +149,7 @@ nav {
   flex-wrap: wrap;
   justify-content: flex-end;
   padding: 1rem;
+  transition: 300ms;
 }
 
 .hidden {
