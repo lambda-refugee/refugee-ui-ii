@@ -1,5 +1,6 @@
 // Serializes form inputs so they can be used to construct
 // URL query parameters
+// * I think I still need to handle whitespace, so it might be best to use `new URLSearchParams(...)`
 const serialize = inputs =>
   [...inputs].reduce(
     (acc, { name, value }) => `${acc}${acc ? "&" : "?"}${name}=${value}`,
