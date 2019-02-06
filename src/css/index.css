@@ -84,7 +84,7 @@ a:focus, a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--vermillion);
+  background: var(--sunshine);
   color: var(--fresh);
 }
 
@@ -109,7 +109,7 @@ a:focus, a:hover {
 /* Going to use this with event listener on scroll */
 .nav-show {
   position: fixed;
-  box-shadow: 0 0 10px var(--sunshine-cc);
+  box-shadow: 0 0px 8px var(--vermillion);
 }
 
 .nav-container svg {
@@ -117,9 +117,10 @@ a:focus, a:hover {
   padding: 0 1rem;
 }
 
-.nav-container svg path {
-  transition: 200ms;
+.nav-container svg:hover path {
+  stroke: white;
 }
+
 .rotate {
   transform: rotate(45deg);
   transform-origin: 24% 33%;
@@ -131,6 +132,7 @@ a:focus, a:hover {
 }
 
 .nav-container svg path {
+  transition: 200ms;
   display: block;
   stroke-linecap: round;
   stroke: var(--fresh);
@@ -172,6 +174,10 @@ a:focus, a:hover {
 
 .nav-dropdown a+a {
   border-top: 1px dotted var(--fresh);
+}
+
+.nav-dropdown a:hover {
+  color: white;
 }
 
 /* ****** */
@@ -248,7 +254,7 @@ header.main .container {
 header.main .container h1 {
   letter-spacing: -0.025em;
   color: var(--fresh);
-  margin: 10vh 0;
+  margin: 5vh 0;
   font-size: calc(2rem + 5vw);
   width: min-content;
   line-height: 0.8;
