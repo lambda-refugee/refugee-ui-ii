@@ -86,7 +86,7 @@ main = () => {
     .then(Object.values)
     .then(console.log)
 
-  const mymap = L.map("mapid").setView([51.505, -0.09], 13)
+  const mymap = L.map("mapid").setView([51.505, -0.09], 9)
   L.tileLayer(
     "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
     {
@@ -97,7 +97,9 @@ main = () => {
       accessToken: MAPBOX_TOKEN
     }
   ).addTo(mymap)
-  const marker = L.marker([51.5, -0.09]).addTo(mymap)
+  L.marker([51.5, -0.09]).addTo(mymap)
+  L.marker([51.56, -0.19]).addTo(mymap)
+  L.marker([51.469, -0.08]).addTo(mymap)
 }
 
 window.onload = main
