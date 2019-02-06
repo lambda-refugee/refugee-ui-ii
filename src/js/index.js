@@ -24,6 +24,24 @@ main = () => {
   document.onscroll = showNavBar
 
   const form = document.querySelector("form")
+  const h = getComputedStyle(form).height
+
+  form.style.height = 0
+  form.style.opacity = 0
+
+  const h2 = document.querySelector("header .container div")
+  console.log(h2)
+  h2.addEventListener("mouseover", () => {
+    console.log("shdhfsjf")
+    form.style.height = h
+    form.style.opacity = 1
+  })
+
+  h2.addEventListener("mouseout", () => {
+    form.style.height = 0
+    form.style.opacity = 0
+  })
+
   const inputs = form.querySelectorAll("input")
 
   form.onsubmit = e => {

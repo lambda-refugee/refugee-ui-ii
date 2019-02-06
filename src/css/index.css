@@ -37,10 +37,6 @@ body, h1, h2, h3, h4, ul {
   margin: 0;
 }
 
-h1 {
-  font-family: var(--serif-font);
-}
-
 ul {
   list-style: none;
 }
@@ -113,10 +109,15 @@ body {
 }
 
 .nav-container svg {
-  height: 2rem;
+  height: calc(0.6667 * var(--navbar-height));
+}
+
+.nav-container nav a {
+  display: none;
 }
 
 .nav-container svg path {
+  display: block;
   stroke-linecap: round;
   stroke: var(--fresh);
 }
@@ -208,24 +209,24 @@ header h2::before {
   
   border-left: calc(1.732 * var(--size)) solid var(--fresh);
 }
-header h2:hover:before {
+header .container div:hover h2:before {
   transform: rotate(90deg);
 }
 
 header form {
   display: flex;
   flex-grow: 200;
-  flex-wrap: wrap;
   flex-direction: column;
   width: 100%;
   justify-content: center;
+  transition: 500ms all;
+  overflow: hidden;
 }
 
 header form label {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  margin: 0.5rem 0;
+  padding: 0.5rem 0;
 }
 
 header form input {
