@@ -17,6 +17,14 @@ const isDescendant = parent => child =>
     ? false
     : child.parentNode == parent || isDescendant(parent)(child.parentNode)
 
+const mkOption = select => option => {
+  const optEl = document.createElement("option")
+  optEl.innerText = option
+  optEl.value = option
+
+  select.appendChild(optEl)
+}
+
 main = () => {
   const getHeaderHeight = () =>
     +getComputedStyle(document.querySelector("header")).height.slice(0, -2)
@@ -73,18 +81,20 @@ main = () => {
     }
   })
 
-  const inputs = form.querySelectorAll("input")
+  // This is somewhat hacky, just so I can select the `select` component as well as `input`
+  const inputs = form.querySelectorAll("label > *")
 
   form.onsubmit = e => {
     e.preventDefault()
     window.location.href = `${REACT_APP_STORY_FORM_URL}${serialize(inputs)}`
   }
 
+  const select = document.getElementById("country")
   const countries = "./assets/json/countries.json"
   fetch(countries)
     .then(res => res.json())
     .then(Object.values)
-    .then(console.log)
+    .then(countries => countries.forEach(mkOption(country)))
 
   const mymap = L.map("mapid").setView([51.505, -0.09], 9)
   L.tileLayer(
