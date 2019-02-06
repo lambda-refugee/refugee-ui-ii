@@ -31,13 +31,28 @@ main = () => {
       role: "Scrum Master"
     },
     {
-      name: "Katie Fitzpatrick",
+      name: "Rachel Kolk",
       avatar:
-        "https://pbs.twimg.com/profile_images/1084467230883151872/bzSYXG33_400x400.jpg",
-      handle: "helloKatieFizzy",
+        "https://pbs.twimg.com/profile_images/2695156041/340455f254da4150fc2b0589b01a3b75_400x400.png",
+      handle: "RachelOKolk",
       bio:
-        "Business Coach, Product Engineer, && Full Stack Developer { react | redux | node.js | sql } obviously magical unicorn 🦄🎉🍻 (chalk art credit: Luke Homitsky)",
-      role: "Scrum Master"
+        "Writer. Fermentation enthusiast. Gardener. Full Stack Web student @lambdaschool",
+      role: "Frontend Engineer"
+    },
+    {
+      name: "David Situ",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1093184699495636993/M-r_XOvO_400x400.jpg",
+      handle: "DavidSitu",
+      bio: "Full-time Student",
+      role: "Backend Engineer"
+    },
+    {
+      name: "Peter Murphy",
+      avatar: "https://avatars0.githubusercontent.com/u/26548438?s=460&v=4",
+      handle: "ptrfrncsmrph",
+      bio: "Enthusiastic about functional programming and web technologies",
+      role: "UI Developer"
     }
   ]
 
