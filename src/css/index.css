@@ -61,11 +61,11 @@ a {
   text-decoration: none;
   color: var(--vermillion);
   border-bottom: 2px solid var(--vermillion);
-  transition: 300ms;
+  transition: 100ms;
 }
 
 a:focus, a:hover {
-  border-bottom: none;
+  border-bottom-color: transparent;
   color: var(--sunshine);
 }
 
@@ -105,14 +105,14 @@ a:focus, a:hover {
   letter-spacing: -0.025em;
 }
 
-.nav-container a {
+/* .nav-container a {
   display: block;
   padding: 0.5rem 1.5rem;
   border-radius: 3rem;
   background: var(--fresh);
   color: var(--vermillion);
   text-decoration: none;
-}
+} */
 
 /* Going to use this with event listener on scroll */
 .nav-show {
@@ -122,16 +122,58 @@ a:focus, a:hover {
 
 .nav-container svg {
   height: calc(0.6667 * var(--navbar-height));
+  padding: 0 1rem;
 }
 
-.nav-container nav a {
+/* .nav-container nav a {
   display: none;
-}
+} */
 
 .nav-container svg path {
   display: block;
   stroke-linecap: round;
   stroke: var(--fresh);
+}
+
+nav {
+  /* position: relative; */
+}
+
+.nav-dropdown {
+  background: var(--sunshine-cc);
+  width: 100vw;
+  position: absolute;
+  right: 0;
+  top: var(--navbar-height);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+}
+
+@media(min-width: 500px) {
+  .nav-dropdown {
+    width: 30vw;
+    min-width: 16rem; 
+  }
+}
+
+.nav-dropdown a {
+  display: block;
+  font-size: 1.25rem;
+  width: 100%;
+  color: var(--fresh);
+  border: none;
+  padding: 1rem;
+}
+
+.nav-dropdown a+a {
+  border-top: 1px dotted var(--fresh);
 }
 
 /* ****** */
@@ -423,7 +465,6 @@ section.team ul li {
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
-  background: var(--fresh);
   padding: 1rem;
   height: fit-content;
 }
