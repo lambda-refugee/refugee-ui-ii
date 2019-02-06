@@ -14,7 +14,7 @@ const toParamString = obj => {
   return params.toString()
 }
 
-const REACT_APP_STORY_FORM = "https://refugeestories.netlify.com/story-form"
+const REACT_APP_STORY_FORM = "https://refugeestories.netlify.com/#/story-form/"
 
 main = () => {
   const getHeaderHeight = () =>
