@@ -101,7 +101,8 @@ a:focus, a:hover {
   display: flex;
 }
 
-.nav-container h1 {
+.nav-container h2 {
+  font-size: 2rem;
   letter-spacing: -0.025em;
 }
 
@@ -238,8 +239,19 @@ header.about {
 header.main .container {
   z-index: 1;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+  /* justify-content: flex-end;
+  align-items: flex-end; */
+}
+
+header.main .container h1 {
+  letter-spacing: -0.025em;
+  color: var(--fresh);
+  margin: 10vh 0;
+  font-size: calc(2rem + 5vw);
+  width: min-content;
+  line-height: 0.8;
 }
 
 header.main .container div {
@@ -248,6 +260,8 @@ header.main .container div {
   background: var(--sunshine-cc);
   max-height: max-content;
   margin: 1rem 0;
+  align-self: flex-end;
+  /* margin: 45vh 0 1rem; */
 }
 
 header.main h2::before {
