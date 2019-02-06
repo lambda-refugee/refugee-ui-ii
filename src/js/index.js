@@ -8,6 +8,9 @@ const serialize = inputs =>
 const REACT_APP_STORY_FORM_URL =
   "https://refugeestories.netlify.com/#/story-form/"
 
+const MAPBOX_TOKEN =
+  "pk.eyJ1IjoicGZtcnBoIiwiYSI6ImNqZmZ5djYxdjJiNG4zM3BhYmIxaXljankifQ.TE8Lyd1bl6nie61qGl5QWw"
+
 // Need to add tests for this, but can only test in the browser since it requires the DOM
 const isDescendant = parent => child =>
   child == null
@@ -73,6 +76,19 @@ main = () => {
     .then(res => res.json())
     .then(Object.values)
     .then(console.log)
+
+  const mymap = L.map("mapid").setView([51.505, -0.09], 13)
+  L.tileLayer(
+    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+    {
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: "mapbox.streets",
+      accessToken: MAPBOX_TOKEN
+    }
+  ).addTo(mymap)
+  const marker = L.marker([51.5, -0.09]).addTo(mymap)
 }
 
 window.onload = main
