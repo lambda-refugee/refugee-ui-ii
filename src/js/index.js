@@ -8,6 +8,12 @@ const serialize = inputs =>
 const REACT_APP_STORY_FORM_URL =
   "https://refugeestories.netlify.com/#/story-form/"
 
+// Need to add tests for this, but can only test in the browser since it requires the DOM
+const isDescendant = parent => child =>
+  child == null
+    ? false
+    : child.parentNode == parent || isDescendant(parent)(child.parentNode)
+
 main = () => {
   const getHeaderHeight = () =>
     +getComputedStyle(document.querySelector("header")).height.slice(0, -2)
@@ -48,8 +54,11 @@ main = () => {
   })
 
   h2.addEventListener("mouseout", () => {
-    form.style.height = 0
-    form.style.opacity = 0
+    // Only collapse on mouseout _if_ the activeElement is not in here
+    if (!isDescendant(form)(document.activeElement)) {
+      form.style.height = 0
+      form.style.opacity = 0
+    }
   })
 
   const inputs = form.querySelectorAll("input")
