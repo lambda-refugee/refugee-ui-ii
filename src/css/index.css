@@ -57,6 +57,18 @@ body {
   background: var(--white);
 }
 
+a {
+  text-decoration: none;
+  color: var(--vermillion);
+  border-bottom: 2px solid var(--vermillion);
+  transition: 300ms;
+}
+
+a:focus, a:hover {
+  border-bottom: none;
+  color: var(--sunshine);
+}
+
 /* ********** */
 /* NAVIGATION */
 /* ********** */
@@ -398,6 +410,10 @@ main h2::after {
 /* ABOUT US */
 /* ******** */
 
+.team ul {
+  clear: both;
+}
+
 section.team h3 {
   margin-bottom: 1rem;
 }
@@ -409,6 +425,7 @@ section.team ul li {
   margin: 1rem 0;
   background: var(--fresh);
   padding: 1rem;
+  height: fit-content;
 }
 
 section.team ul h4, section.team ul h5 {
@@ -424,8 +441,8 @@ section.team ul li:nth-child(2n) {
 
 section.team ul li img {
   object-fit: cover;
-  max-height: 40vh;
-  max-width: 30vw;
+  margin: 1rem;
+  max-height: 25vh;
   border-radius: 40vw;
 }
 
@@ -433,6 +450,13 @@ section.team ul li div {
   margin-left: 1rem;
   width: 70vw;
   max-width: 100%;
+}
+
+section.team ul li span {
+  display: inline-block;
+  font-style: italic;
+  color: var(--sunshine);
+  margin: 0.5rem 0;
 }
 
 section.team ul li:nth-child(2n) div {
@@ -446,6 +470,7 @@ section.team ul li:nth-child(2n) div {
 
 footer {
   background: var(--vermillion);
+  clear: both;
 }
 
 footer p {

@@ -4,7 +4,7 @@ const listItem = ul => ({ name, avatar, handle, bio, role }) => {
   const nameEl = document.createElement("h4")
   const avatarEl = document.createElement("img")
   const handleEl = document.createElement("h5")
-  const roleEl = document.createElement("p")
+  const roleEl = document.createElement("span")
   const bioEl = document.createElement("p")
 
   nameEl.innerText = name
