@@ -1,8 +1,9 @@
 const listItem = ul => ({ name, avatar, handle, bio, role }) => {
   const li = document.createElement("li")
-  const nameEl = document.createElement("h3")
+  const wrapper = document.createElement("div")
+  const nameEl = document.createElement("h4")
   const avatarEl = document.createElement("img")
-  const handleEl = document.createElement("h4")
+  const handleEl = document.createElement("h5")
   const roleEl = document.createElement("p")
   const bioEl = document.createElement("p")
 
@@ -13,14 +14,24 @@ const listItem = ul => ({ name, avatar, handle, bio, role }) => {
   roleEl.innerHTML = `<strong>${role}</strong>`
   bioEl.innerText = bio
 
-  li.append(nameEl, avatarEl, handleEl, bioEl)
+  wrapper.append(nameEl, roleEl, handleEl, bioEl)
+  li.append(avatarEl, wrapper)
   ul.append(li)
 }
 
 main = () => {
   const team = [
     {
-      name: "Katie",
+      name: "Katie Fitzpatrick",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1084467230883151872/bzSYXG33_400x400.jpg",
+      handle: "helloKatieFizzy",
+      bio:
+        "Business Coach, Product Engineer, && Full Stack Developer { react | redux | node.js | sql } obviously magical unicorn 🦄🎉🍻 (chalk art credit: Luke Homitsky)",
+      role: "Scrum Master"
+    },
+    {
+      name: "Katie Fitzpatrick",
       avatar:
         "https://pbs.twimg.com/profile_images/1084467230883151872/bzSYXG33_400x400.jpg",
       handle: "helloKatieFizzy",

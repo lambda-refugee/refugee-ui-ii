@@ -180,14 +180,18 @@ header {
   display: flex;
 }
 
-header .container {
+header.about {
+  min-height: auto;
+}
+
+header.main .container {
   z-index: 1;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
 }
 
-header .container div {
+header.main .container div {
   color: var(--fresh);
   padding: 2rem;
   background: var(--sunshine-cc);
@@ -195,7 +199,7 @@ header .container div {
   margin: 1rem 0;
 }
 
-header h2::before {
+header.main h2::before {
   --size: 0.5rem;
   display: inline-block;
   margin-right: 0.5rem;
@@ -209,11 +213,11 @@ header h2::before {
   
   border-left: calc(1.732 * var(--size)) solid var(--fresh);
 }
-header .container div:hover h2:before {
+header.main .container div:hover h2:before {
   transform: rotate(90deg);
 }
 
-header form {
+header.main form {
   display: flex;
   flex-grow: 200;
   flex-direction: column;
@@ -223,19 +227,19 @@ header form {
   overflow: hidden;
 }
 
-header form label {
+header.main form label {
   display: flex;
   flex-direction: column;
   padding: 0.5rem 0;
 }
 
-header form input {
+header.main form input {
   border: none;
   padding: 0.5rem;
   background: var(--fresh);
 }
 
-header form button {
+header.main form button {
   padding: 0.75rem;
   border-radius: 2rem;
   color: var(--fresh);
@@ -246,6 +250,10 @@ header form button {
 
 header .container {
   display: flex;
+}
+
+header.about {
+  padding-top: 2rem;
 }
 
 /* ******* */
@@ -263,6 +271,8 @@ section {
 main h2 {
   display: flex;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 2rem 0;
   text-transform: uppercase;
 }
@@ -270,7 +280,7 @@ main h2 {
 main h2::after {
   content: "";
   display: inline-block;
-  width: 100%;
+  flex-grow: 1;
   border-top: 1px dotted var(--vermillion);
   margin: 0 1rem;
 }
@@ -383,6 +393,32 @@ main h2::after {
     align-self: flex-end;
   }
 }
+
+/* ******** */
+/* ABOUT US */
+/* ******** */
+
+section.team h3 {
+  margin-bottom: 1rem;
+}
+
+section.team ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.team ul li div {
+  width: auto;
+  margin-left: 1rem;
+}
+
+section.team ul li img {
+  object-fit: cover;
+  max-height: 30vh;
+  max-width: 30vw;
+}
+
 
 /* ****** */
 /* FOOTER */
