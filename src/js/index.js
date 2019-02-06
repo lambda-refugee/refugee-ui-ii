@@ -2,19 +2,12 @@
 // URL query parameters
 const serialize = inputs =>
   [...inputs].reduce(
-    (acc, input) => ({ ...acc, [input.name]: input.value }),
-    {}
+    (acc, { name, value }) => `${acc}${acc ? "&" : "?"}${name}=${value}`,
+    ""
   )
 
-const toParamString = obj => {
-  let params = new URLSearchParams()
-  Object.entries(obj).forEach(([k, v]) => {
-    params.append(k, v)
-  })
-  return params.toString()
-}
-
-const REACT_APP_STORY_FORM = "https://refugeestories.netlify.com/#/story-form/"
+const REACT_APP_STORY_FORM_URL =
+  "https://refugeestories.netlify.com/#/story-form/"
 
 main = () => {
   const getHeaderHeight = () =>
@@ -28,11 +21,6 @@ main = () => {
       : navBarContainer.classList.remove("nav-show")
   }
 
-  // If user resizes the height of window, the navbar will still
-  // be activated below the fold for whatever window height
-  document.addEventListener("resize", () => {
-    document.onscroll = showNavBar
-  })
   document.onscroll = showNavBar
 
   const form = document.querySelector("form")
@@ -40,9 +28,7 @@ main = () => {
 
   form.onsubmit = e => {
     e.preventDefault()
-    window.location.href = `${REACT_APP_STORY_FORM}?${toParamString(
-      serialize(inputs)
-    )}`
+    window.location.href = `${REACT_APP_STORY_FORM_URL}${serialize(inputs)}`
   }
 }
 

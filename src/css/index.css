@@ -17,10 +17,6 @@
   --sunshine-cc: #52658fcc;
   --clean: #e8e8e8;
 
-  /* Break points */
-  --min-tablet-width: 600px;
-  --min-desktop-width: 800px;
-
   /* For keeping height of navbar in sync
      with padding-top of rest of content */
   --navbar-height: 4rem;
@@ -39,6 +35,10 @@
 body, h1, h2, h3, h4, ul {
   padding: 0;
   margin: 0;
+}
+
+h1 {
+  font-family: var(--serif-font);
 }
 
 ul {
