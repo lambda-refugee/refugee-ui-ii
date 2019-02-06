@@ -30,9 +30,7 @@ main = () => {
   form.style.opacity = 0
 
   const h2 = document.querySelector("header .container div")
-  console.log(h2)
   h2.addEventListener("mouseover", () => {
-    console.log("shdhfsjf")
     form.style.height = h
     form.style.opacity = 1
   })
@@ -48,6 +46,12 @@ main = () => {
     e.preventDefault()
     window.location.href = `${REACT_APP_STORY_FORM_URL}${serialize(inputs)}`
   }
+
+  const countries = "./assets/json/countries.json"
+  fetch(countries)
+    .then(res => res.json())
+    .then(Object.values)
+    .then(console.log)
 }
 
 window.onload = main
