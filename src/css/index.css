@@ -105,15 +105,6 @@ a:focus, a:hover {
   letter-spacing: -0.025em;
 }
 
-/* .nav-container a {
-  display: block;
-  padding: 0.5rem 1.5rem;
-  border-radius: 3rem;
-  background: var(--fresh);
-  color: var(--vermillion);
-  text-decoration: none;
-} */
-
 /* Going to use this with event listener on scroll */
 .nav-show {
   position: fixed;
@@ -125,18 +116,23 @@ a:focus, a:hover {
   padding: 0 1rem;
 }
 
-/* .nav-container nav a {
-  display: none;
-} */
+.nav-container svg path {
+  transition: 200ms;
+}
+.rotate {
+  transform: rotate(45deg);
+  transform-origin: 24% 33%;
+}
+
+.rotate-ccw {
+  transform: rotate(-45deg);
+  transform-origin: 24% 66%;
+}
 
 .nav-container svg path {
   display: block;
   stroke-linecap: round;
   stroke: var(--fresh);
-}
-
-nav {
-  /* position: relative; */
 }
 
 .nav-dropdown {
@@ -419,7 +415,10 @@ main h2::after {
 /* MAP */
 /* *** */
 
-#mapid { height: 180px; }
+#mapid {
+  z-index: 0; 
+  height: 60vh;
+}
 
 
 /* ***** */

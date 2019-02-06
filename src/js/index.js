@@ -38,10 +38,19 @@ main = () => {
 
   const navSVG = document.querySelector(".nav-container svg")
   navSVG.addEventListener("click", () => {
+    const [a, b, c] = [...navSVG.querySelectorAll("path")]
     dropdownNav.classList.toggle("hidden")
-    !dropdownNav.classList.contains("hidden")
-      ? (dropdownNav.style.height = hNav)
-      : (dropdownNav.style.height = 0)
+    if (dropdownNav.classList.contains("hidden")) {
+      dropdownNav.style.height = 0
+      a.classList.remove("rotate")
+      b.classList.remove("hidden")
+      c.classList.remove("rotate-ccw")
+    } else {
+      dropdownNav.style.height = hNav
+      a.classList.add("rotate")
+      b.classList.add("hidden")
+      c.classList.add("rotate-ccw")
+    }
   })
 
   const form = document.querySelector("form")
