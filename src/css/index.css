@@ -157,11 +157,35 @@ a:focus, a:hover {
   height: 0;
 }
 
+.hidden-nav {
+  opacity: 0;
+  height: 0;
+}
+
+
 @media(min-width: 500px) {
   .nav-dropdown {
     width: 30vw;
     min-width: 16rem; 
   }
+}
+
+@media(min-width: 650px) {
+  svg {
+    display: none;
+  }
+  .nav-dropdown {
+    width: 100%;
+    min-width: auto; 
+    display: inline-grid;
+    grid-gap: 5vw;
+    grid-auto-flow: column;
+    position: inherit;
+  }
+  .hidden-nav {
+      opacity: 1;
+      height: auto;
+  } 
 }
 
 .nav-dropdown a {
@@ -180,12 +204,28 @@ a:focus, a:hover {
 .nav-dropdown a:hover {
   color: var(--vermillion);
   background-color: var(--fresh);
+  transition: 300ms;
+}
+
+@media(min-width: 650px) {
+  .nav-dropdown a+a {
+    border-top: none;
+  }
+  .nav-dropdown a {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--vermillion);
+    padding: 0;
+  }
+  .nav-dropdown a:hover {
+    color: var(--fresh);
+    background: none;
+  }
 }
 
 /* ****** */
 /* HEADER */
 /* ****** */
-
 
 .header-img {
   position: absolute;
@@ -249,8 +289,6 @@ header.main .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* justify-content: flex-end;
-  align-items: flex-end; */
 }
 
 header.main .container h1 {
@@ -320,7 +358,6 @@ header.main form input, header.main form select {
 }
 
 select {
-  /* background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat 95% 50%; */
 	-moz-appearance: none; 
 	-webkit-appearance: none; 
 	appearance: none;
@@ -486,7 +523,7 @@ main h2::after {
   margin-bottom: 1rem;
 }
 
-@media(min-width: 600px) {
+@media(min-width: 650px) {
   .facts ul {
     display: inline-grid;
     grid-auto-flow: column;

@@ -48,15 +48,15 @@ main = () => {
   document.onscroll = showNavBar
 
   const dropdownNav = document.querySelector(".nav-dropdown")
-  dropdownNav.classList.remove("hidden")
+  dropdownNav.classList.remove("hidden-nav")
   const hNav = getComputedStyle(dropdownNav).height
-  dropdownNav.classList.add("hidden")
+  dropdownNav.classList.add("hidden-nav")
 
   const navSVG = document.querySelector(".nav-container svg")
   navSVG.addEventListener("click", () => {
     const [a, b, c] = [...navSVG.querySelectorAll("path")]
-    dropdownNav.classList.toggle("hidden")
-    if (dropdownNav.classList.contains("hidden")) {
+    dropdownNav.classList.toggle("hidden-nav")
+    if (dropdownNav.classList.contains("hidden-nav")) {
       dropdownNav.style.height = 0
       a.classList.remove("rotate")
       b.classList.remove("hidden")
