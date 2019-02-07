@@ -56,29 +56,6 @@ main = () => {
   }
   const navSVG = document.querySelector(".nav-container svg")
   const [a, b, c] = [...navSVG.querySelectorAll("path")]
-  // const foo = () => {
-  //   console.log("foo")
-  //   const ht = getDropNavHeight()
-  //   dropdownNav.classList.toggle("hidden-nav")
-  //   console.log("to", dropdownNav.classList.contains("hidden-nav"))
-  //   if (dropdownNav.classList.contains("hidden-nav")) {
-  //     dropdownNav.style.height = 0
-  //     a.classList.remove("rotate")
-  //     b.classList.remove("hidden")
-  //     c.classList.remove("rotate-ccw")
-  //   } else {
-  //     dropdownNav.style.height = ht
-  //     dropdownNav.classList.remove("hidden-nav")
-  //     a.classList.add("rotate")
-  //     b.classList.add("hidden")
-  //     c.classList.add("rotate-ccw")
-  //   }
-  // }
-
-  // document.addEventListener("resize", () => {
-  //   navSVG.removeEventListener("click", foo)
-  //   navSVG.addEventListener("click", foo)
-  // })
 
   window.onresize = () => {
     const ht = getDropNavHeight()
@@ -158,27 +135,25 @@ main = () => {
 
   const mkMap = ([lat, long]) => mymap => {
     const pt1 = [
-      randomInRange(0.995 * lat, 1.005 * lat),
-      randomInRange(0.995 * long, 1.005 * long)
+      lat + randomInRange(-0.3, 0.3),
+      long + randomInRange(-0.3, 0.3)
     ]
     const pt2 = [
-      randomInRange(0.995 * lat, 1.005 * lat),
-      randomInRange(0.995 * long, 1.005 * long)
+      lat + randomInRange(-0.3, 0.3),
+      long + randomInRange(-0.3, 0.3)
     ]
     const pt3 = [
-      randomInRange(0.995 * lat, 1.005 * lat),
-      randomInRange(0.995 * long, 1.005 * long)
+      lat + randomInRange(-0.3, 0.3),
+      long + randomInRange(-0.3, 0.3)
     ]
     const pt4 = [
-      randomInRange(0.995 * lat, 1.005 * lat),
-      randomInRange(0.995 * long, 1.005 * long)
+      lat + randomInRange(-0.3, 0.3),
+      long + randomInRange(-0.3, 0.3)
     ]
     const pt5 = [
-      randomInRange(0.995 * lat, 1.005 * lat),
-      randomInRange(0.995 * long, 1.005 * long)
+      lat + randomInRange(-0.3, 0.3),
+      long + randomInRange(-0.3, 0.3)
     ]
-
-    console.log({ pt1, pt2, pt3 })
 
     L.tileLayer(
       "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
