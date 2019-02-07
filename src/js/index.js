@@ -5,6 +5,12 @@ const serialize = inputs =>
     ""
   )
 
+// My try at implementing an insertion sort, not tested
+const insertAtIndex = ix => xs => x =>
+  ix === -1 ? [...xs, x] : [...xs.slice(0, ix), x, ...xs.slice(ix)]
+const sort = xs =>
+  xs.reduce((acc, x) => insertAtIndex(acc.findIndex(y => y > x))(acc)(x), [])
+
 const REACT_APP_STORY_FORM_URL =
   "https://refugeestories.netlify.com/#/story-form/"
 
@@ -94,6 +100,7 @@ main = () => {
   fetch(countries)
     .then(res => res.json())
     .then(Object.values)
+    .then(sort)
     .then(countries => countries.forEach(mkOption(country)))
 
   const mymap = L.map("mapid").setView([51.505, -0.09], 9)
