@@ -89,7 +89,7 @@ main = () => {
     window.location.href = `${REACT_APP_STORY_FORM_URL}${serialize(inputs)}`
   }
 
-  const select = document.getElementById("country")
+  const country = document.getElementById("country")
   const countries = "./assets/json/countries.json"
   fetch(countries)
     .then(res => res.json())
