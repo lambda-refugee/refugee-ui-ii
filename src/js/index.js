@@ -54,39 +54,21 @@ main = () => {
     dropdownNav.classList.add("hidden-nav")
     return hNav
   }
+  const hNav = getDropNavHeight()
+  console.log(hNav)
+
   const navSVG = document.querySelector(".nav-container svg")
   const [a, b, c] = [...navSVG.querySelectorAll("path")]
 
-  window.onresize = () => {
-    const ht = getDropNavHeight()
-    navSVG.onclick = () => {
-      dropdownNav.classList.toggle("hidden-nav")
-      if (dropdownNav.classList.contains("hidden-nav")) {
-        dropdownNav.style.height = 0
-        a.classList.remove("rotate")
-        b.classList.remove("hidden")
-        c.classList.remove("rotate-ccw")
-      } else {
-        dropdownNav.style.height = ht
-        dropdownNav.classList.remove("hidden-nav")
-        a.classList.add("rotate")
-        b.classList.add("hidden")
-        c.classList.add("rotate-ccw")
-      }
-    }
-  }
-
-  const ht = getDropNavHeight()
   navSVG.onclick = () => {
     dropdownNav.classList.toggle("hidden-nav")
-    console.log("this foo")
     if (dropdownNav.classList.contains("hidden-nav")) {
       dropdownNav.style.height = 0
       a.classList.remove("rotate")
       b.classList.remove("hidden")
       c.classList.remove("rotate-ccw")
     } else {
-      dropdownNav.style.height = ht
+      dropdownNav.style.height = hNav
       dropdownNav.classList.remove("hidden-nav")
       a.classList.add("rotate")
       b.classList.add("hidden")

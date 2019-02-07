@@ -170,11 +170,20 @@ a:focus, a:hover {
   }
 }
 
+.not-nav-dropdown {
+  display: none;
+}
+
 @media(min-width: 650px) {
   svg {
     display: none;
   }
   .nav-dropdown {
+    display: none;
+  }
+  .not-nav-dropdown {
+    text-transform: uppercase;
+    font-size: 1.25rem;
     width: 100%;
     min-width: auto; 
     display: inline-grid;
@@ -182,9 +191,13 @@ a:focus, a:hover {
     grid-auto-flow: column;
     position: inherit;
   }
+  .not-nav-dropdown a {
+    font-weight: 600;
+    border: none;
+  }
   .hidden-nav {
-      opacity: 1;
-      height: auto;
+    opacity: 1;
+    height: auto;
   } 
 }
 
@@ -208,19 +221,6 @@ a:focus, a:hover {
 }
 
 @media(min-width: 650px) {
-  .nav-dropdown a+a {
-    border-top: none;
-  }
-  .nav-dropdown a {
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--vermillion);
-    padding: 0;
-  }
-  .nav-dropdown a:hover {
-    color: var(--fresh);
-    background: none;
-  }
 }
 
 /* ****** */
