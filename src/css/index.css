@@ -192,8 +192,12 @@ a:focus, a:hover {
     position: inherit;
   }
   .not-nav-dropdown a {
-    font-weight: 600;
+    font-weight: 800;
     border: none;
+    transition: 300ms;
+  }
+  .not-nav-dropdown a:hover {
+    color: var(--fresh)
   }
   .hidden-nav {
     opacity: 1;
