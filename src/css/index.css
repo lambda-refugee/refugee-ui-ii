@@ -197,7 +197,7 @@ a:focus, a:hover {
     border: none;
     transition: 300ms;
   }
-  .nav-inline a:hover {
+  .nav-inline a:hover, .nav-inline a:focus {
     color: var(--fresh)
   }
   .hidden-nav {
@@ -413,6 +413,14 @@ header.about {
 /* CONTENT */
 /* ******* */
 
+
+@supports(-webkit-initial-letter: 2.0) {
+  .mission::first-letter {
+    -webkit-initial-letter: 2.0;
+    font-weight: 800;
+  }
+}
+
 main {
   color: var(--vermillion);
 }
@@ -481,6 +489,9 @@ main h2::after {
     margin-top: 1rem;
     background: none;
   }
+  .stories li {
+    display: none;
+  }
 }
 
 @media(min-width: 650px) {
@@ -489,6 +500,7 @@ main h2::after {
     overflow: scroll;
   }
   .stories li {
+    display: block;
     flex-direction: column;
     margin: 0 1rem;
     color: var(--vermillion);

@@ -5,6 +5,9 @@ const serialize = inputs =>
     ""
   )
 
+// This is a modulo division function for use with the gallery carousel
+const mod = (x, y) => x - y * Math.floor(x / y)
+
 const randomInRange = (min, max) => Math.random() * (max - min) + min
 
 // My try at implementing an insertion sort, not tested
@@ -55,7 +58,6 @@ main = () => {
     return hNav
   }
   const hNav = getDropNavHeight()
-  console.log(hNav)
 
   const navSVG = document.querySelector(".nav-container svg")
   const [a, b, c] = [...navSVG.querySelectorAll("path")]
@@ -112,6 +114,32 @@ main = () => {
     .then(sort)
     .then(countries => countries.forEach(mkOption(country)))
 
+  // This is the carousel gallery logic
+  const gallery = document.querySelector(".gallery")
+  const imgs = [...gallery.querySelectorAll("li")]
+  console.log(imgs)
+
+  // const runCarousel = imgs => (current, last) => {
+  //   const length = imgs.length
+  //   last !== undefined && (imgs[last].style.display = "none")
+  //   imgs[current].style.display = "block"
+  //   imgs[current].onclick = runCarousel(mod(current + 1, length), current)
+  // }
+  // const endCarousel = () => {
+  //   imgs.forEach(img => {
+  //     img.style.display = "block"
+  //   })
+  // }
+
+  // window.addEventListener("resize", () => {
+  //   // Detect if window is in tablet range (needs to stay in sync with CSS media queries ☹️)
+  //   window.innerWidth >= 500 && window.innerWidth < 650
+  //     ? runCarousel(0)
+  //     : endCarousel()
+  // })
+
+  // runCarousel(0)
+
   // This is centered around London, but we could get geolocation from the browser
   // const mymap = L.map("mapid").setView([51.505, -0.09], 9)
 
@@ -138,12 +166,12 @@ main = () => {
     ]
 
     L.tileLayer(
-      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+      "https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
       {
         attribution:
           'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
-        id: "mapbox.streets",
+        id: "light-v10",
         accessToken: MAPBOX_TOKEN
       }
     ).addTo(mymap)
