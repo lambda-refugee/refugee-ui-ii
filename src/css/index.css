@@ -479,6 +479,11 @@ main h2::after {
   object-fit: cover;
 }
 
+/* Carousel only visible in tablet view */
+#carousel {
+  display: none;
+}
+
 @media(min-width: 500px) {
   .stories li:nth-child(2n + 1) p {
     padding-right: 5%;
@@ -490,11 +495,24 @@ main h2::after {
     background: none;
   }
   .stories li {
-    /* display: none; */
+    display: none;
+  }
+  #carousel {
+    display: block;
+  }
+  #carousel li {
+    display: flex;
+    height: 80vh;
+  }
+  #carousel li p {
+    text-align: left;
   }
 }
 
 @media(min-width: 650px) {
+  #carousel {
+    display: none;
+  }
   .stories ul {
     display: flex;
     overflow: scroll;

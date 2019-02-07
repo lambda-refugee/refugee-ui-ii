@@ -116,20 +116,24 @@ main = () => {
 
   // This is the carousel gallery logic
   const gallery = document.querySelector(".gallery")
-  const imgs = [...gallery.querySelectorAll("li")]
-  console.log(imgs)
+  const carousel = document.getElementById("carousel")
+  const imgs = gallery.querySelectorAll("li")
 
-  // const runCarousel = imgs => (current, last) => {
-  //   const length = imgs.length
-  //   last !== undefined && (imgs[last].style.display = "none")
-  //   imgs[current].style.display = "block"
-  //   imgs[current].onclick = runCarousel(mod(current + 1, length), current)
-  // }
-  // const endCarousel = () => {
-  //   imgs.forEach(img => {
-  //     img.style.display = "block"
-  //   })
-  // }
+  imgs.forEach(img => {
+    const clone = img.cloneNode(true)
+    clone.style.display = "none"
+    carousel.appendChild(clone)
+  })
+
+  const carouselImgs = carousel.querySelectorAll("li")
+
+  console.log(carouselImgs)
+  ;(function runCarousel(current = 0, last) {
+    const length = carouselImgs.length
+    last !== undefined && (carouselImgs[last].style.display = "none")
+    carouselImgs[current].style.display = "block"
+    carousel.onclick = () => runCarousel(mod(current + 1, length), current)
+  })()
 
   // window.addEventListener("resize", () => {
   //   // Detect if window is in tablet range (needs to stay in sync with CSS media queries ☹️)
