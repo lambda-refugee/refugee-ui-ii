@@ -490,7 +490,7 @@ main h2::after {
     background: none;
   }
   .stories li {
-    display: none;
+    /* display: none; */
   }
 }
 
