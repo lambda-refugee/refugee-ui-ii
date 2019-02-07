@@ -295,7 +295,7 @@ header.main .container h1 {
   letter-spacing: -0.025em;
   color: var(--fresh);
   margin: 5vh 0;
-  font-size: calc(2.25rem + 4vw);
+  font-size: calc(2.25rem + 6vw);
   width: min-content;
   line-height: 0.8;
 }
