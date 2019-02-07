@@ -20,6 +20,34 @@ const listItem = ul => ({ name, avatar, handle, bio, role }) => {
 }
 
 main = () => {
+  const dropdownNav = document.querySelector(".nav-dropdown")
+  const getDropNavHeight = () => {
+    dropdownNav.classList.remove("hidden-nav")
+    const hNav = getComputedStyle(dropdownNav).height
+    dropdownNav.classList.add("hidden-nav")
+    return hNav
+  }
+  const hNav = getDropNavHeight()
+
+  const navSVG = document.querySelector(".nav-container svg")
+  const [a, b, c] = [...navSVG.querySelectorAll("path")]
+
+  navSVG.onclick = () => {
+    dropdownNav.classList.toggle("hidden-nav")
+    if (dropdownNav.classList.contains("hidden-nav")) {
+      dropdownNav.style.height = 0
+      a.classList.remove("rotate")
+      b.classList.remove("hidden")
+      c.classList.remove("rotate-ccw")
+    } else {
+      dropdownNav.style.height = hNav
+      dropdownNav.classList.remove("hidden-nav")
+      a.classList.add("rotate")
+      b.classList.add("hidden")
+      c.classList.add("rotate-ccw")
+    }
+  }
+
   const team = [
     {
       name: "Katie Fitzpatrick",
