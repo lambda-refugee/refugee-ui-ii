@@ -61,7 +61,7 @@ main = () => {
     {
       name: "Rachel Kolk",
       avatar:
-        "https://pbs.twimg.com/profile_images/2695156041/340455f254da4150fc2b0589b01a3b75_400x400.png",
+        "https://pbs.twimg.com/profile_images/1093342006972243968/a6qPq9kg_400x400.jpg",
       handle: "RachelOKolk",
       bio:
         "Writer. Fermentation enthusiast. Gardener. Full Stack Web student @lambdaschool",

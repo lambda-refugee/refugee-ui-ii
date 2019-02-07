@@ -175,6 +175,9 @@ a:focus, a:hover {
 }
 
 @media(min-width: 650px) {
+  :root {
+    --space: calc(3vw - 1rem);
+  }
   svg {
     display: none;
   }
@@ -184,15 +187,13 @@ a:focus, a:hover {
   .nav-inline {
     text-transform: uppercase;
     font-size: 1.25rem;
-    width: 100%;
     min-width: auto; 
-    display: inline-grid;
-    grid-gap: 5vw;
-    grid-auto-flow: column;
+    display: flex;
     position: inherit;
   }
   .nav-inline a {
     font-weight: 800;
+    width: max-content;
     border: none;
     transition: 300ms;
   }
@@ -203,6 +204,15 @@ a:focus, a:hover {
     opacity: 1;
     height: auto;
   } 
+  .nav-inline a+a {
+    margin-left: var(--space);
+  }
+  .nav-inline a+a:before {
+    color: var(--vermillion-cc);
+    font-weight: 500;
+    content: "|";
+    margin-right: var(--space);
+  }
 }
 
 .nav-dropdown a {
