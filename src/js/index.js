@@ -103,21 +103,31 @@ main = () => {
   form.style.opacity = 0
 
   const h2 = document.querySelector("header .container div")
-  h2.addEventListener("mouseover", () => {
+
+  const openForm = () => {
     form.style.height = h
     form.style.opacity = 1
-  })
+  }
 
-  h2.addEventListener("mouseout", () => {
+  const closeForm = () => {
     // Only collapse on mouseout _if_ the activeElement is not in here
     if (!isDescendant(form)(document.activeElement)) {
       form.style.height = 0
       form.style.opacity = 0
     }
-  })
+  }
+
+  h2.addEventListener("mouseover", openForm)
+  h2.addEventListener("mouseout", closeForm)
+  h2.addEventListener("focus", openForm)
 
   // This is somewhat hacky, just so I can select the `select` component as well as `input`
   const inputs = form.querySelectorAll("label > *")
+  const submitButton = form.querySelector("button")
+  ;[...inputs, submitButton].forEach(input => {
+    input.addEventListener("focus", openForm)
+    input.addEventListener("blur", closeForm)
+  })
 
   form.onsubmit = e => {
     e.preventDefault()

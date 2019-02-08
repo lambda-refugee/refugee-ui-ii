@@ -395,7 +395,7 @@ header.main form button {
   transition: 200ms;
 }
 
-header.main form button:hover {
+header.main form button:hover, header.main form button:focus {
   border-radius: 2rem;
   color: var(--vermillion);
   background: var(--fresh);
