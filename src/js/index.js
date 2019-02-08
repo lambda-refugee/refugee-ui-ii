@@ -53,9 +53,12 @@ main = () => {
   const dropdownNav = document.querySelector(".nav-dropdown")
   const inlineNav = document.querySelector(".nav-inline")
   const getDropNavHeight = () => {
+    const initial = dropdownNav.style.display
     dropdownNav.classList.remove("hidden-nav")
+    dropdownNav.style.display = "block"
     const hNav = getComputedStyle(dropdownNav).height
     dropdownNav.classList.add("hidden-nav")
+    dropdownNav.style.display = initial
     return hNav
   }
   const hNav = getDropNavHeight()
