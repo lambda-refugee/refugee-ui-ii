@@ -21,6 +21,7 @@ const listItem = ul => ({ name, avatar, handle, bio, role }) => {
 
 main = () => {
   const dropdownNav = document.querySelector(".nav-dropdown")
+  const inlineNav = document.querySelector(".nav-inline")
   const getDropNavHeight = () => {
     dropdownNav.classList.remove("hidden-nav")
     const hNav = getComputedStyle(dropdownNav).height
@@ -28,6 +29,13 @@ main = () => {
     return hNav
   }
   const hNav = getDropNavHeight()
+
+  // Clone all dropdown-nav links into inline nav
+  const anchors = dropdownNav.querySelectorAll("a")
+  anchors.forEach(a => {
+    a_ = a.cloneNode(true)
+    inlineNav.appendChild(a_)
+  })
 
   const navSVG = document.querySelector(".nav-container svg")
   const [a, b, c] = [...navSVG.querySelectorAll("path")]

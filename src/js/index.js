@@ -51,6 +51,7 @@ main = () => {
   document.onscroll = showNavBar
 
   const dropdownNav = document.querySelector(".nav-dropdown")
+  const inlineNav = document.querySelector(".nav-inline")
   const getDropNavHeight = () => {
     dropdownNav.classList.remove("hidden-nav")
     const hNav = getComputedStyle(dropdownNav).height
@@ -58,6 +59,23 @@ main = () => {
     return hNav
   }
   const hNav = getDropNavHeight()
+
+  // Clone all dropdown-nav links into inline nav
+  const anchors = dropdownNav.querySelectorAll("a")
+  anchors.forEach(a => {
+    a_ = a.cloneNode(true)
+    inlineNav.appendChild(a_)
+  })
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault()
+
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth"
+      })
+    })
+  })
 
   const navSVG = document.querySelector(".nav-container svg")
   const [a, b, c] = [...navSVG.querySelectorAll("path")]
@@ -134,15 +152,6 @@ main = () => {
     carouselImgs[current].style.display = "block"
     carousel.onclick = () => runCarousel(mod(current + 1, length), current)
   })()
-
-  // window.addEventListener("resize", () => {
-  //   // Detect if window is in tablet range (needs to stay in sync with CSS media queries ☹️)
-  //   window.innerWidth >= 500 && window.innerWidth < 650
-  //     ? runCarousel(0)
-  //     : endCarousel()
-  // })
-
-  // runCarousel(0)
 
   // This is centered around London, but we could get geolocation from the browser
   // const mymap = L.map("mapid").setView([51.505, -0.09], 9)
