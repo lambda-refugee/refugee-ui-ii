@@ -7,16 +7,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Refugee Stories</title>
   <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
   <script src="./js/index.js" async></script>
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 
 </head>
 
 <body>
   <div class="nav-outer-container">
     <div class="nav-container">
-      <h1>Refugee Stories</h1>
+      <h2 class="hidden" aria-hidden="true">Refugee Stories</h2>
       <nav>
-        <a href="$REACT_APP">Login</a>
+        <svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8,3 L2,3" />
+          <path d="M2,5 L8,5" />
+          <path d="M8,7 L2,7" />
+        </svg>
+        <div class="nav-inline hidden-nav">
+          <!-- <a href="https://refugeestories.netlify.com/#/login">Login</a>
+          <a href="./about.html">About Us</a>
+          <a href="#stories">Stories</a>
+          <a href="#volunteer">Volunteer</a>
+          <a href="#facts">Facts</a> -->
+        </div>
+        <div class="nav-dropdown hidden-nav">
+          <a href="https://refugeestories.netlify.com/#/login">Login</a>
+          <a href="./about.html">About Us</a>
+          <a href="#stories">Stories</a>
+          <a href="#volunteer">Volunteer</a>
+          <a href="#facts">Facts</a>
+        </div>
       </nav>
     </div>
   </div>
@@ -26,25 +46,33 @@
        in PhotoShop because browser support is not great -->
   <div class="duotone lighten darken">
   </div>
-  <header>
+  <header class="main">
     <div class="container">
-      <div>
+      <h1>Refugee<br />Stories</h1>
+      <div tabindex="0">
         <h2>Share your story</h2>
         <form>
           <label>First name
-            <input type="text"></label>
+            <input name="name" type="text"></label>
           <label>Country of origin
-            <input type="text"></label>
-          <button type="submit">Submit your story</button>
+            <select name="country" id="country">
+            </select>
+          </label>
+          <button type="submit">Write your story</button>
         </form>
       </div>
     </div>
   </header>
   <main class="container">
+    <section class="description">
+      <h2>What we do</h2>
+      <p class="mission">There are more people displaced in the world today than at any time since the end of World War II and it is more important than ever to help people develop empathy for each other. <strong>Refugee Stories</strong> aims to share the stories of the displaced and dispossessed with the rest of the world, with the goal of promoting awareness of the refugees' plight and connecting users to volunteer organizations worldwide.</p>
+    </section>
     <section class="stories" id="stories">
       <h2>Stories</h2>
 
-      <ul>
+      <ul id="carousel"></ul>
+      <ul class="gallery">
         <li>
           <img src="./assets/placeholder/story-1.png" alt="">
           <p><span class="highlight">8-year-old <strong>Ahmed</strong> is a refugee from Syria, temporarily living on the Greek island of Samos. Despite poor living conditions on the island, it is still safer than returning home.</span></p>
@@ -62,6 +90,12 @@
       </ul>
 
     </section>
+    <section id="volunteer" class="map">
+      <h2>Volunteer</h2>
+      <p>This will generate 5 random points within a certain radius of your geolocation, if enabled in your browser. If you don't have location services enabled, it will default to generating 5 random points around London, England.
+      </p>
+      <div id="mapid"></div>
+    </section>
     <section class="facts" id="facts">
       <h2>Facts</h2>
 
@@ -69,23 +103,28 @@
         <li>
           <h3>What is a Refugee?</h3>
           <p>A refugee is someone who has been forced to flee his or her country because of persecution, war, or violence. A refugee has a well-founded fear of persecution for reasons of race, religion, nationality or political opinion.</p>
-          <a href="$REACT_APP">Read more</a>
+          <a href="https://refugeestories.netlify.com/">Read more</a>
         </li>
 
         <li>
           <h3>Refugee Statistics</h3>
           <p>By the end of 2017, 68.5 million were forcibly displaced worldwide as a result of persecution, conflict or violence. This is a record level of displacement.</p>
-          <a href="$REACT_APP">Read more</a>
+          <a href="https://refugeestories.netlify.com/">Read more</a>
         </li>
 
         <li>
           <h3>What is a Refugee Camp?</h3>
           <p>A refugee camp is often the first accommodation for people who have been forced to flee their home because of violence and persecution.</p>
-          <a href="$REACT_APP">Read more</a>
+          <a href="https://refugeestories.netlify.com/">Read more</a>
         </li>
       </ul>
     </section>
   </main>
+  <footer class="container">
+    <div>
+      <p>2019 Refugee Stories</p>
+    </div>
+  </footer>
 
 </body>
 
